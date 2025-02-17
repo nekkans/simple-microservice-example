@@ -39,7 +39,7 @@ jobs:
  
     - name: Build Docker image for ${{ matrix.service }}
       run: |
-        docker build -t ravinekkanti/${{ matrix.service }}:latest -f ./${{ matrix.service }}/app.dockerfile .
+        docker build -t ravinekkanti/${{ matrix.service }}:latest -f ./${{ matrix.service }}/app.dockerfile ${{ matrix.service }}
           
     - name: Push Docker image to Docker Hub
       run: |

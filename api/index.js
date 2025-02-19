@@ -16,9 +16,12 @@ app.get('/api/status', (req, res) => {
 
 // Returns a random quote from the quote api
 app.get('/api/randomquote',async (req, res) => {
+    console.log('Received request for random quote')
     try {
         const url = QUOTES_API_GATEWAY + '/api/quote'
+        console.log(`Fetching quote from ${url}`)
         const quote = await axios.get(url)
+        console.log('Quote fetched successfully', quote.data)
         return res.json({
             time: Date.now(),
             quote: quote.data
